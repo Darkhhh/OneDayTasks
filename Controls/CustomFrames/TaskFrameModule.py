@@ -1,4 +1,5 @@
 import customtkinter as ctk
+from Utils.GetAssetsModule import resource_path
 from PIL import Image
 
 delete_icon_path = "Assets/delete_task_icon.png"
@@ -33,14 +34,14 @@ class TaskFrame(ctk.CTkFrame):
         self.task.grid(column=1, row=0, sticky="ew", padx=15)
 
         # Percent Button
-        percent_img_src = Image.open(percent_icon_path)
+        percent_img_src = Image.open(resource_path(percent_icon_path))
         percent_img = ctk.CTkImage(light_image=percent_img_src, dark_image=percent_img_src, size=(20, 20))
         self.percentage_button = ctk.CTkButton(self, text='', image=percent_img, width=25, height=25)
         self.percentage_button.configure(fg_color="RoyalBlue3", hover_color="RoyalBlue4", command=self.percent_event)
         self.percentage_button.grid(column=2, row=0, sticky="ew", padx=5)
 
         # Delete Button
-        delete_img_src = Image.open(delete_icon_path)
+        delete_img_src = Image.open(resource_path(delete_icon_path))
         delete_img = ctk.CTkImage(light_image=delete_img_src, dark_image=delete_img_src, size=(20, 20))
         self.delete_button = ctk.CTkButton(self, width=25, height=25, text="", image=delete_img)
         self.delete_button.configure(hover_color="red4", fg_color="red3", command=self.delete_event)

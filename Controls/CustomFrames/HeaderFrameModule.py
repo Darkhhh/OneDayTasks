@@ -1,5 +1,6 @@
 import customtkinter as ctk
 from PIL import Image
+from Utils.GetAssetsModule import resource_path
 add_icon_path = "Assets/new_task_icon.png"
 finish_icon_path = "Assets/finish_day_icon.png"
 
@@ -15,14 +16,15 @@ class HeaderFrame(ctk.CTkFrame):
         self.grid_columnconfigure(index=2, weight=1)
         self.grid_columnconfigure(index=3, weight=2)
 
-        img = ctk.CTkImage(light_image=Image.open(add_icon_path), dark_image=Image.open(add_icon_path), size=(15, 15))
+        add_img_src = Image.open(resource_path(add_icon_path))
+        img = ctk.CTkImage(light_image=add_img_src, dark_image=add_img_src, size=(15, 15))
         self.add_button = ctk.CTkButton(self, text='', width=30, height=30, image=img)
         self.add_button.grid(row=0, column=0, padx=10, sticky="ew")
         self.progress_bar = ctk.CTkProgressBar(self, width=180, progress_color="green", height=5)
         self.progress_bar.grid(row=0, column=1, padx=10, sticky="ew")
         self.progress_label = ctk.CTkLabel(self, text="50%", width=40)
         self.progress_label.grid(row=0, column=2, padx=10, sticky="ns")
-        fin_img_src = Image.open(finish_icon_path)
+        fin_img_src = Image.open(resource_path(finish_icon_path))
         fin_img = ctk.CTkImage(light_image=fin_img_src, dark_image=fin_img_src, size=(15, 15))
         self.finish_button = ctk.CTkButton(self, height=30, width=30, text="", image=fin_img, fg_color="transparent")
         self.finish_button.grid(row=0, column=3, padx=10, sticky="ew")

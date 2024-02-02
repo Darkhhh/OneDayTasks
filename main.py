@@ -2,7 +2,7 @@
 # application using the customtkinter module
 
 import customtkinter as ctk
-import tkinter as tk
+from Utils.GetAssetsModule import resource_path
 from Controls.CustomFrames.AllTasksFrameModule import TasksFrame
 from Controls.CustomFrames.HeaderFrameModule import HeaderFrame
 
@@ -14,15 +14,10 @@ ctk.set_appearance_mode("Dark")
 ctk.set_default_color_theme("green")
 
 
-def print_add():
-    header.set_progress(int(header.get_progress()) + 10)
-    print("Task added")
-
-
 if __name__ == "__main__":
     app = ctk.CTk()
     app.title("One Day Tasks")
-    app.iconbitmap("Assets/app.ico")
+    app.iconbitmap(resource_path("Assets/app.ico"))
     app.geometry("400x350")
     app.resizable(width=False, height=False)
 
