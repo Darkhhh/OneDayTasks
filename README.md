@@ -13,4 +13,4 @@ pip install -r requirements.txt
 4. Собрать проект
 5. Через `.\venv\Scripts\` запустить `autopytoexe`
 6. Включить папки `.\venv\Lib\site-packages\customtkinter` и `.\Assets`
-7. После конвертации перенести папку `Assets` из `_internal` в корень папки (к исполняемому файлу)
+7. Конвертировать
